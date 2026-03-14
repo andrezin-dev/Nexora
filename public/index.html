@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora | Tecnologia Premium</title>
+    <meta name="description" content="A melhor loja online para produtos de tecnologia de alta performance e design premium.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2592/2592178.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navegação -->
+        <header class="navbar">
+            <div class="logo">
+                <i class="ph ph-hexagon"></i>
+                <span>Nexora</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#home">Início</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#sobre">Sobre</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="nav-icon-btn" id="wishlistToggleBtn">
+                    <i class="ph ph-heart"></i>
+                    <span class="cart-badge" id="wishlistBadge">0</span>
+                </button>
+                <button class="cart-btn" id="cartToggleBtn">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Search & Filter Bar -->
+        <div class="search-container container">
+            <div class="search-wrapper">
+                <div class="search-input-group">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="O que você está procurando hoje?">
+                </div>
+                <select id="sortSelect" class="sort-select">
+                    <option value="featured">Destaques</option>
+                    <option value="low">Menor Preço</option>
+                    <option value="high">Maior Preço</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Seção Hero (Destaque Principal) -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="badge">Novo Lançamento</div>
+                <h1 class="hero-title">O Ápice da<br><span class="gradient-text">Tecnologia Premium</span></h1>
+                <p class="hero-subtitle">Descubra os produtos mais incríveis criados para revolucionar o seu dia a dia. Design, potência e inovação em um só lugar.</p>
+                <div class="hero-buttons">
+                    <a href="#produtos" class="btn btn-primary">
+                        Explorar Coleção <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="#sobre" class="btn btn-secondary">
+                        Saiba Mais
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="glow-orb"></div>
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=800&auto=format&fit=crop" alt="Produto Premium Destaque" class="hero-image">
+            </div>
+        </section>
+
+        <!-- Seção de Produtos -->
+        <section id="produtos" class="products-section">
+            <div class="section-header">
+                <h2>Seus novos <span class="gradient-text">favoritos</span></h2>
+                <p>Nossa seleção impecável dos melhores equipamentos do mercado.</p>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Produtos serão carregados via JavaScript aqui -->
+                <div class="loading-spinner"></div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="ph ph-hexagon" style="color:var(--accent-color)"></i>
+                        <span>Nexora</span>
+                    </div>
+                    <p>Elevando os padrões da tecnologia moderna com estilo e perfeição.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-column">
+                        <h3>Navegação</h3>
+                        <a href="#home">Início</a>
+                        <a href="#produtos">Loja</a>
+                    </div>
+                    <div class="link-column">
+                        <h3>Contato</h3>
+                        <a href="#">Suporte</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Nexora Tech. Todos os direitos reservados.
+            </div>
+        </footer>
+
+        <!-- Modal do Carrinho (Menu Lateral) -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Seu Carrinho</h2>
+                <button class="close-cart-btn" id="closeCartBtn">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Itens do carrinho aparecerão aqui -->
+                <div class="empty-cart-message">
+                    <i class="ph ph-shopping-bag"></i>
+                    <p>Seu carrinho está vazio</p>
+                </div>
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotalPrice">R$ 0,00</span>
+                </div>
+                <button class="btn btn-primary checkout-btn" id="checkoutBtn" disabled>
+                    Finalizar Compra
+                </button>
+            </div>
+        </div>
+        
+        <!-- Overlay escuro -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Sidebar de Favoritos -->
+        <div class="cart-sidebar" id="wishlistSidebar">
+            <div class="cart-header">
+                <h2>Seus Favoritos</h2>
+                <button class="close-cart-btn" id="closeWishlistBtn">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="wishlistItems">
+                <div class="empty-cart-message">
+                    <i class="ph ph-heart"></i>
+                    <p>Você ainda não favoritou nada</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação Inferior (Mobile Only) -->
+        <nav class="bottom-nav">
+            <a href="#home" class="nav-item active">
+                <i class="ph ph-house"></i>
+                <span>Início</span>
+            </a>
+            <a href="#produtos" class="nav-item">
+                <i class="ph ph-magnifying-glass"></i>
+                <span>Explorar</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" id="mobileWishlistBtn">
+                <i class="ph ph-heart"></i>
+                <span>Favoritos</span>
+            </a>
+            <a href="javascript:void(0)" class="nav-item" id="mobileCartBtn">
+                <i class="ph ph-shopping-cart"></i>
+                <span>Carrinho</span>
+            </a>
+        </nav>
+
+        <!-- Toast de Notificação -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>

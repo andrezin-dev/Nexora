@@ -1,0 +1,17 @@
+{
+  "name": "Nexora Tech",
+  "short_name": "Nexora",
+  "description": "Premium Technology E-commerce",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2592/2592178.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
